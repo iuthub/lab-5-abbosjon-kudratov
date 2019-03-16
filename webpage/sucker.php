@@ -13,16 +13,21 @@
 	$cardNumber=$_POST["cardNumber"];
 	$cardType=$_POST["cardType"];
 
-	$isNameError=isset($name);
-	$isFormError=$isNameError;
+	$isNameError=empty($name);
+	$isSectionError=empty($section);
+	$isCardNumberError=empty($cardNumber);
+	$isCardTypeError=empty($cardType);
+	$isFormError=$isNameError||$isSectionError ||$isCardNumberError ||
+	$isCardTypeError;
 
 
 
-	file_put_contents("suckers.txt", $name,FILE_APPEND);
 
 ?>
 
-<?php if($isNameError){
+<?php if(!$isFormError){
+	$list=$name.";".$section.";".$cardNumber.";".$cardType."\n";
+	file_put_contents("suckers.txt", $list,FILE_APPEND);
 
  ?>
 <h1>Thanks sucker!</h1>
@@ -40,10 +45,10 @@
 
 </dl>
 
-
+<br />
 <p>Here is the list of all suckers:</p>
 <pre>
-<?php file_get_contents("suckers.txt"); ?>
+<?=file_get_contents("suckers.txt"); ?>
 </pre>
 
 <?php 
@@ -51,7 +56,8 @@
 
 
 else {?>
-	<h1>Thanks sucker!</h1> 
+	<h1>Something wrong sucker!</h1> 
+	<h3>Please go <a href="buyagrade.html"> back </a>and fill the form again!</h3>
 <?php  }
 
 ?>
