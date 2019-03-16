@@ -7,7 +7,7 @@
 	
 	<body>
 <?php 
-//($_SERVER["REQUEST_METHOD"]=="POST") {
+
 	$name=$_POST["name"];
 	$section=$_POST["section"];
 	$cardNumber=$_POST["cardNumber"];
@@ -19,8 +19,6 @@
 	$isCardTypeError=empty($cardType);
 	$isFormError=$isNameError||$isSectionError ||$isCardNumberError ||
 	$isCardTypeError;
-
-
 
 
 ?>
