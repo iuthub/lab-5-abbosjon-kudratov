@@ -7,7 +7,7 @@
 	
 	<body>
 <?php 
-
+	error_reporting(0);
 	$name=$_POST["name"];
 	$section=$_POST["section"];
 	$cardNumber=$_POST["cardNumber"];
@@ -55,7 +55,7 @@
 
 else {?>
 	<h1>Something wrong sucker!</h1> 
-	<h3>Please go <a href="buyagrade.html"> back </a>and fill the form again!</h3>
+	<h3>Please go  back and fill the <a href="buyagrade.html">form</a> again!</h3>
 <?php  }
 
 ?>
